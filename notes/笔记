@@ -1,0 +1,29 @@
+1---创建聚合过程: 版本号写1.0.0不要写1.0
+2---为什么要使用Finchley.SR2版本，因为spring-cloud的1版本有很多的Bug
+
+
+3--创建注册中心模块:
+    引入依赖 :
+             <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+             </dependency>
+
+    开启server服务注解: @EnableEurekaServer
+
+    写配置文件:   详情看配置文件
+
+4--创建网关模块，这里使用zuul网关
+    因为是客户端，网关，所以需要导入2个依赖
+
+            <!--客户端-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client </artifactId>
+            </dependency>
+            <!--zuul网关-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+            </dependency>
+    然后开始开启注解开关，设置配置
